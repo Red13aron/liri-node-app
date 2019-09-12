@@ -1,10 +1,11 @@
 //"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
 
-var axios = require("axios");
-var fs = require("fs");
+const axios = require("axios");
+const fs = require("fs");
+const Moment = require(`moment`);
 
 // Create the TV constructor
-var Concert = function () {
+const Concert = function () {
     // divider will be used as a spacer between the tv data we print in log.txt
     const divider = "------------------------------------------------------------";
 
@@ -17,11 +18,11 @@ var Concert = function () {
             const jsonData = response.data[0];
             const venueName = jsonData.venue.name;
             const venueLoc = `${jsonData.venue.city}, ${jsonData.venue.region} ${jsonData.venue.country}`;
-            const venueDate = jsonData.datetime;
+            const venueDate = Moment(jsonData.datetime).format(`MMM Do YY`);
             console.log(divider);
-            console.log(venueName);
-            console.log(venueLoc);
-            console.log(venueDate);
+            console.log(`Venue Name: ${venueName}`);
+            console.log(`Location: ${venueLoc}`);
+            console.log(`Date: ${venueDate}`);
             console.log(divider);
             // showData ends up being the string containing the show data we will print to the console
             // const concertData = [

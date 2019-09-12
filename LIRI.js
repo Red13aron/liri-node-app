@@ -3,12 +3,10 @@
 
 //requires
 require('dotenv').config();
-const axios = require("axios");
-const Spotify = require('node-spotify-api');
-const Moment = require(`moment`);
-const keys = require("./keys.js");
-const Concert = require("./concert.js")
-const spotify = new Spotify(keys.spotify);
+
+const Concert = require("./concert.js");
+const Spotify = require("./spotify.js");
+const Movie = require("./movie.js")
 
 //variables
 const nodeArgs = process.argv;
@@ -17,6 +15,8 @@ let subject = ``;
 
 //objects
 const concert = new Concert();
+const spotify = new Spotify();
+const movie = new Movie();
 
 //determine search subject
 for(let i = 0; i < nodeArgs.length; i++){
@@ -32,5 +32,17 @@ console.log(`The command is: ${command} and the subject of the search is: ${subj
 
 if(command === `concert-this`){
     concert.findConcert(subject);
+}
+else if(command === `spotify-this-song`){
+    if(subject === ``){
+        subject = `The Sign artist:Ace of Base`;
+    }
+    spotify.findSong(subject);
+}
+else if(command === `movie-this`){
+    if(subject === ``){
+        subject = `Mr. Nobody`;
+    }
+    movie.findMovie(subject);
 }
 //spotify.search(queryUrl);
