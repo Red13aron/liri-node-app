@@ -1,6 +1,7 @@
 const Spotify = require('node-spotify-api');
 const keys = require("./keys.js");
 const spotify = new Spotify(keys.spotify);
+const fs = require("fs");
 
 const Spot = function () {
     // divider will be used as a spacer between the tv data we print in log.txt
@@ -20,6 +21,17 @@ const Spot = function () {
             console.log(`Preview: ${externalUrl}`);
             console.log(`Album: ${album}`);
             console.log(divider);
+
+            const songData = [
+                "Artist: " + artist,
+                "Song: " + songName,
+                "Preview: " + externalUrl,
+                "Album: " + album
+            ].join("\n\n");
+
+            fs.appendFile("log.txt", "\n" + divider + "\n" + songData + "\n" + divider +"\n", function (err) {
+                if (err) throw err;
+            });
         })
         .catch(function (err) {
             console.log(err);

@@ -1,8 +1,8 @@
 //"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
 
 const axios = require("axios");
-const fs = require("fs");
 const Moment = require(`moment`);
+const fs = require("fs");
 
 // Create the TV constructor
 const Concert = function () {
@@ -24,22 +24,18 @@ const Concert = function () {
             console.log(`Location: ${venueLoc}`);
             console.log(`Date: ${venueDate}`);
             console.log(divider);
-            // showData ends up being the string containing the show data we will print to the console
-            // const concertData = [
-            //     "Show: " + jsonData.name,
-            //     "Genre(s): " + jsonData.genres.join(", "),
-            //     "Rating: " + jsonData.rating.average,
-            //     "Network: " + jsonData.network.name,
-            //     "Summary: " + jsonData.summary
-            // ].join("\n\n");
 
-            // Append showData and the divider to log.txt, print showData to the console
-            //   fs.appendFile("log.txt", concertData + divider, function (err) {
-            //     if (err) throw err;
-            // console.log(divider + concertData);
+            const concertData = [
+                "Venue Name: " + venueName,
+                "Location: " + venueLoc,
+                "Date: " + venueDate
+            ].join("\n\n");
+
+            fs.appendFile("log.txt", "\n" + divider + "\n" + concertData + "\n" + divider + "\n", function (err) {
+                if (err) throw err;
+            });
         });
     }
-};
-
+}
 
 module.exports = Concert;
