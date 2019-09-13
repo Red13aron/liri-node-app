@@ -36,3 +36,20 @@ The basic commands are: concert-this, movie-this, spotify-this-song.
 - node .\LIRI.js do-what-it-says
 
     - uses random.txt to determine which previous command should be used and  what the subject is, please use **`<command>,<subject>`** only once and exactly as described inside random.txt
+
+## Example Gifs:
+- Using concert-this
+
+![Liri Node App Example 1](demo/demo1.gif)
+
+- Using movie-this
+
+![Liri Node App Example 2](demo/demo2.gif)
+
+- Using spotify-this-song
+
+![Liri Node App Example 3](demo/demo3.gif)
+
+-Using do-what-it-says
+
+![Liri Node App Example 4](demo/demo4.gif)
