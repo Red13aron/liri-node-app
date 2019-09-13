@@ -53,3 +53,18 @@ The basic commands are: concert-this, movie-this, spotify-this-song.
 -Using do-what-it-says
 
 ![Liri Node App Example 4](demo/demo4.gif)
+
+
+## Technologies
+liri-node-app uses the following technologies:
+1. Axios, for simplified fetch requests
+2. FS, for file appending and reading
+3. Moment, for converting Dates to legible formats
+4. Bands In Town API, for getting concert info
+5. OMDB API, for getting movie info
+6. Node-Spotify API, for getting song info
+
+
+## Collaborators
+
+**Shane Nelson!**
